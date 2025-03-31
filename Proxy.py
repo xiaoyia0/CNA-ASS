@@ -24,7 +24,7 @@ try:
   # ~~~~ END CODE INSERT ~~~~
   print ('Created socket')
 except:
-  print ('Failed to create socket')
+  print ('Failed to create sock')
   sys.exit()
 
 try:

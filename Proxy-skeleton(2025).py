@@ -24,13 +24,12 @@ try:
   # ~~~~ END CODE INSERT ~~~~
   print ('Created socket')
 except:
-  print ('Failed to create sock')
+  print ('Failed to create socket')
   sys.exit()
 
 try:
   # Bind the the server socket to a host and port
   # ~~~~ INSERT CODE ~~~~
-  serverSocket.bind((proxyHost,proxyPort))
   # ~~~~ END CODE INSERT ~~~~
   print ('Port is bound')
 except:
@@ -40,7 +39,6 @@ except:
 try:
   # Listen on the server socket
   # ~~~~ INSERT CODE ~~~~
-  serverSocket.listen(5)
   # ~~~~ END CODE INSERT ~~~~
   print ('Listening to socket')
 except:
@@ -55,7 +53,6 @@ while True:
   # Accept connection from client and store in the clientSocket
   try:
     # ~~~~ INSERT CODE ~~~~
-    clientSocket, clientAddress = serverSocket.accept()
     # ~~~~ END CODE INSERT ~~~~
     print ('Received a connection')
   except:
@@ -65,7 +62,6 @@ while True:
   # Get HTTP request from client
   # and store it in the variable: message_bytes
   # ~~~~ INSERT CODE ~~~~
-  message_bytes = clientSocket.recv(BUFFER_SIZE)
   # ~~~~ END CODE INSERT ~~~~
   message = message_bytes.decode('utf-8')
   print ('Received request:')
@@ -118,8 +114,6 @@ while True:
     # ProxyServer finds a cache hit
     # Send back response to client 
     # ~~~~ INSERT CODE ~~~~
-    for line in cacheData:
-      clientSocket.send(line.encode())
     # ~~~~ END CODE INSERT ~~~~
     cacheFile.close()
     print ('Sent to the client:')
